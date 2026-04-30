@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Home, User, Tent, Briefcase, Mail, UnfoldVertical, Box, Sun, Grid3X3, X } from "lucide-react";
 import { useState, useEffect, useRef, type ReactNode, type SVGProps } from "react";
 import resumeUrl from "../assets/adinarayana_balla_resume.pdf?url";
+import mayaShowreelUrl from "../assets/maya-showreel.mp4?url";
 
 // --- Constants ---
 
@@ -423,19 +424,49 @@ const SectionProjects = () => {
       animate={{ opacity: 1 }}
       className="pt-32 pb-40"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-16 mb-20">
+      <div className="max-w-7xl mx-auto px-6 sm:px-16 mb-16 text-center">
         <span className="font-display text-xs font-bold uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">
           Portfolio
         </span>
         <h2 className="font-display text-5xl sm:text-7xl font-black text-black leading-none tracking-tighter">
           SELECTED WORKS
         </h2>
-        <p className="text-on-surface-variant max-w-2xl mt-6 leading-relaxed">
+        <p className="text-on-surface-variant max-w-2xl mx-auto mt-6 leading-relaxed">
           A continuous reel across disciplines — from traditional murals and
           clay sculpting to graphite sketches and AI-assisted experiments.
           Hover any row to pause it.
         </p>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-5xl mx-auto px-6 sm:px-16 mb-28"
+      >
+        <div className="text-center mb-6">
+          <span className="font-display text-[10px] font-bold uppercase tracking-[0.4em] text-on-surface-variant mb-2 block">
+            Featured Reel
+          </span>
+          <h3 className="font-display text-3xl sm:text-5xl font-black text-black tracking-tighter leading-none">
+            MAYA SHOW REEL
+          </h3>
+        </div>
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-black shadow-[0_40px_80px_rgba(0,0,0,0.15)] border border-black/5 group">
+          <video
+            src={mayaShowreelUrl}
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-2xl" />
+        </div>
+      </motion.div>
 
       <MarqueeRow
         label="Generative"
