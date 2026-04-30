@@ -32,3 +32,53 @@
 .perspective-1000 {
   perspective: 1000px;
 }
+
+.marquee-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.marquee-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.marquee-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: scroll-position;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.marquee-track img,
+.marquee-track video {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
